@@ -10,8 +10,8 @@ namespace PerfilesWebApi.Controllers
     [ApiController]
     public class DepartamentosController : ControllerBase
     {
-        // GET: api/<DepartamentosController>
-        [HttpGet("{incluirDeshabilitados}")]
+        [Route("Listado/{incluirDeshabilitados}")]
+        [HttpGet]
         public IEnumerable<Departamento> Get(bool incluirDeshabilitados)
         {
             DataTable dt;
@@ -41,11 +41,11 @@ namespace PerfilesWebApi.Controllers
             {
                 return (IEnumerable<Departamento>)BadRequest(e.Message);
             }
-
         }
 
-        // GET api/<DepartamentosController>/5
-        [HttpGet("{idDepartamento}")]
+
+        [Route("ObtenerRegistro/{idDepartamento}")]
+        [HttpGet]
         public Departamento Get(int idDepartamento)
         {
             DataTable dt;
@@ -96,8 +96,9 @@ namespace PerfilesWebApi.Controllers
             }
         }
 
-        // PUT api/<DepartamentosController>/5
-        [HttpPut("{idDepartamento}")]
+
+        [Route("actualizarDepartamento/{idDepartamento}")]
+        [HttpPut]
         public void Put(Int16 idDepartamento, [FromBody] Departamento value)
         {
             DAL accesoDatosModel = new DAL();
@@ -113,8 +114,8 @@ namespace PerfilesWebApi.Controllers
             }
         }
 
-        // PUT api/<DepartamentosController>/5/true
-        [HttpPut("{idDepartamento}/{habilitado}")]
+        [Route("actualizarEstadoDepartamento/{idDepartamento}/{habilitado}")]
+        [HttpPut]
         public void Put(Int16 idDepartamento, bool habilitado)
         {
             DAL accesoDatosModel = new DAL();

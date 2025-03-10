@@ -9,16 +9,16 @@ namespace PerfilesWebApi.Controllers;
 [Route("[controller]")]
 public class EmpleadoController : ControllerBase
 {
-    // GET: api/<EmpleadoController>
+    [Route("Listado/{incluirDeshabilitados}")]
     [HttpGet]
-    public IEnumerable<Empleado> Get()
+    public IEnumerable<Empleado> Get(bool incluirDeshabilitados)
     {
         DataTable dt;
         DAL accesoDatosModel = new DAL();
 
         try
         {
-            dt = accesoDatosModel.ExecuteQuery("[dbo].[spEmpleado_Listar]");
+            dt = accesoDatosModel.ExecuteQuery("[dbo].[spEmpleado_Listar] " + incluirDeshabilitados);
             if (dt.Rows.Count > 0)
             {
                 List<Empleado> lista = dt.AsEnumerable()
@@ -45,8 +45,8 @@ public class EmpleadoController : ControllerBase
 
     }
 
-    // GET api/<EmpleadoController>/5
-    [HttpGet("{idEmpleado}")]
+    [Route("ObtenerRegistro/{idEmpleado}")]
+    [HttpGet]
     public Empleado Get(int idEmpleado)
     {
         DataTable dt;
@@ -110,8 +110,8 @@ public class EmpleadoController : ControllerBase
         }
     }
 
-    // PUT api/<EmpleadoController>/5
-    [HttpPut("{idEmpleado}")]
+    [Route("actualizarEmpleado/{idEmpleado}")]
+    [HttpPut]
     public void Put(int idEmpleado, [FromBody] Empleado value)
     {
         DAL accesoDatosModel = new DAL();
@@ -132,8 +132,8 @@ public class EmpleadoController : ControllerBase
         }
     }
 
-    // PUT api/<EmpleadoController>/5/true
-    [HttpPut("{idEmpleado}/{habilitado}")]
+    [Route("actualizarEstadoDepartamento/{idEmpleado}/{habilitado}")]
+    [HttpPut]
     public void Put(int idEmpleado, bool habilitado)
     {
         DAL accesoDatosModel = new DAL();
