@@ -132,7 +132,7 @@ public class EmpleadoController : ControllerBase
         }
     }
 
-    [Route("actualizarEstadoDepartamento/{idEmpleado}/{habilitado}")]
+    [Route("actualizarEstadoEmpleado/{idEmpleado}/{habilitado}")]
     [HttpPut]
     public void Put(int idEmpleado, bool habilitado)
     {
