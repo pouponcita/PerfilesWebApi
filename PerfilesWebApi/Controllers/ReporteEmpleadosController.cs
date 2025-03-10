@@ -27,8 +27,10 @@ namespace PerfilesWebApi.Controllers
                      {
                          IdEmpleado = row.Field<Int32>(0),
                          Nombres = string.IsNullOrEmpty(row.Field<string>(1)) ? "" : row.Field<string>(1),
-                         Apellidos = string.IsNullOrEmpty(row.Field<string>(2)) ? "" : row.Field<string>(2),                   
-                         Habilitado = row.Field<bool>(3)
+                         Apellidos = string.IsNullOrEmpty(row.Field<string>(2)) ? "" : row.Field<string>(2),
+                         FechaIngreso = row.Field<DateTime>(3),
+                         FechaNacimiento = row.Field<DateTime>(4),
+                         Habilitado = row.Field<bool>(5)
                      }).ToList();
 
                     return lista;

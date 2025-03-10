@@ -28,8 +28,10 @@ public class EmpleadoController : ControllerBase
                      Apellidos = string.IsNullOrEmpty(row.Field<string>(1)) ? "" : row.Field<string>(1),
                      Nombres = string.IsNullOrEmpty(row.Field<string>(2)) ? "" : row.Field<string>(2),
                      FechaIngreso = row.Field<DateTime>(3),
-                     Habilitado = row.Field<bool>(4)
-                   }).ToList();
+                     Habilitado = row.Field<bool>(4),
+                     Departamento = string.IsNullOrEmpty(row.Field<string>(5)) ? "" : row.Field<string>(5),
+                     DepartamentoHabilitado = row.Field<bool>(6),
+                 }).ToList();
 
                 return lista;
             }

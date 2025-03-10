@@ -6,6 +6,7 @@ namespace PerfilesWebApi.Models
     {
         public Int32 IdEmpleado { get; set; }
         public Int16 IdDepartamentoAsignado { get; set; }
+        public string Departamento { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string DPI { get; set; }
@@ -15,6 +16,7 @@ namespace PerfilesWebApi.Models
         public string NIT { get; set; }
         public DateTime FechaIngreso { get; set; }
         public Boolean Habilitado { get; set; }
+        public Boolean DepartamentoHabilitado { get; set; }
 
         public int Edad {
             get
