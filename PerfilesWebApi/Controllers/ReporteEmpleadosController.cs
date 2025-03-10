@@ -7,8 +7,8 @@ namespace PerfilesWebApi.Controllers
 {
     public class ReporteEmpleadosController : ControllerBase
     {
-        // GET: api/<ReporteEmpleadosController>
-        [HttpGet("{idDepartamento}/{fechaIngresoDesde}/{fechaIngresoHasta}/{incluirDeshabilitados}")]
+        [Route("ReporteEmpleados/{idDepartamento}/{fechaIngresoDesde}/{fechaIngresoHasta}/{incluirDeshabilitados}")]
+        [HttpGet]
         public IEnumerable<Empleado> Get(Int16 idDepartamento,
                                         DateTime fechaIngresoDesde,
                                         DateTime fechaIngresoHasta,
