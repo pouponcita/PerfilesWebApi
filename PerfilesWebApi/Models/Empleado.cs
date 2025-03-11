@@ -6,7 +6,7 @@ namespace PerfilesWebApi.Models
     {
         public Int32 IdEmpleado { get; set; }
         public Int16 IdDepartamentoAsignado { get; set; }
-        public string Departamento { get; set; }
+        public string Departamento { get; set; } = "";
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string DPI { get; set; }

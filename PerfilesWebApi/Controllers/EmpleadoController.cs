@@ -2,6 +2,7 @@
 using PerfilesWebApi.Models;
 using System.Data;
 using System.Diagnostics.Metrics;
+using System.Runtime.Intrinsics.Arm;
 
 namespace PerfilesWebApi.Controllers;
 
@@ -102,8 +103,7 @@ public class EmpleadoController : ControllerBase
                 + ",'" + value.Nombres + "','" + value.Apellidos 
                 + "','" + value.DPI + "','" + value.FechaNacimiento
                 + "','" + value.Sexo + "','" + value.Direccion
-                + "','" + value.NIT + "','" + value.FechaIngreso
-                + "'," + value.Habilitado);
+                + "','" + value.NIT + "','" + value.FechaIngreso + "'");
 
         }
         catch (Exception e)
@@ -122,10 +122,9 @@ public class EmpleadoController : ControllerBase
         {
             int resultado = accesoDatosModel.ExecuteNonQuery("[dbo].[spEmpleado_Modificar] " + idEmpleado.ToString() + "," + value.IdDepartamentoAsignado
                 + ",'" + value.Nombres + "','" + value.Apellidos
-                + "','" + value.DPI + "','" + value.FechaNacimiento
+                + "','" + value.DPI + "','" + value.FechaNacimiento.ToString("yyyy-MM-dd")
                 + "','" + value.Sexo + "','" + value.Direccion
-                + "','" + value.NIT + "','" + value.FechaIngreso
-                + "'," + value.Habilitado);
+                + "','" + value.NIT + "','" + value.FechaIngreso.ToString("yyyy-MM-dd") + "'");
 
         }
         catch (Exception e)
